@@ -20,12 +20,16 @@
             <hr>
             <div class="d-flex justify-content-between align-items-center">
                 <p>Stock: {{ $products->stock }}</p> <!-- Added stock information -->
-                <form action="{{ route('cart.add') }}" method="post">
-                    @csrf
-                    <input type="hidden" name="product_id" value="{{ $products->id }}">
-                    <input type="number" name="quantity" value="1" min="1">
-                    <button type="submit" class="btn btn-success">Add to Cart</button>
-                    </form>
+@if(Auth::check())
+    <form action="{{ route('cart.add') }}" method="post">
+        @csrf
+        <input type="hidden" name="product_id" value="{{ $products->id }}">
+        <input type="number" name="quantity" value="1" min="1">
+        <button type="submit" class="btn btn-success">Add to Cart</button>
+    </form>
+@else
+    <a href="{{ route('login') }}" class="btn btn-success">Login to Add to Cart</a>
+@endif
             </div>
             <hr>
             @if (Auth::check() && (Auth::user()->id == $products->user_id || Auth::user()->isAdmin()))
