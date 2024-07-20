@@ -6,6 +6,8 @@ Potrebno je napraviti bazu podataka pod imenom 'petshopdb' i izmeniti informacij
 
 *php artisan db:seed* kako bi se popunile tabele sa podacima.
 
+*php artisan storage:link* kako bi se napravio link sa postojećim storage-om.
+
 *php artisan serve* kako bi se pokrenuo server.
 
 # Admin login informacije
