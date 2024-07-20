@@ -14,12 +14,16 @@
                     <p class="card-text">Category: {{ $product->category->name }}</p>
                     <p class="card-text">Price: {{ $product->price }} RSD</p>
                     <a href="{{ route('products.show', $product->slug) }}" style="text-decoration: underline; color: #17a2b8; font-size: 1.2em;">See more</a>
-                    {{-- Form for adding to cart --}}
-                    {{-- {!! Form::open(['url' => '/cart-add', 'method' => 'POST']) !!} --}}
-                    <input type="hidden" name="productId" value="{{ $product->id }}">
-                    <input type="hidden" name="qty" value="1">
-                    <button type="submit" class="btn btn-success" style="float: right;">Add to Cart</button>
-                    {{-- {!! Form::close() !!} --}}
+                    @if(Auth::check())
+                    <form action="{{ route('cart.add') }}" method="post" style="float: right;">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn btn-success">Add to Cart</button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}" class="btn btn-success" style="float: right;">Add to Cart</a>
+                @endif
                 </div>
             </div>
         </div>
