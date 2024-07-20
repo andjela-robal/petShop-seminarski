@@ -52,7 +52,7 @@
                     </div>
                 @else
                     <center>You are logged in!
-                    <a href="/order" class="btn btn-info">My Orders</a></center>
+                    <a href="#" class="btn btn-info">My Orders</a></center>
                 @endif
             </div>
         </div>
