@@ -1,6 +1,6 @@
 # petShop projekat
 
-Potrebno je napraviti bazu podataka pod imenom 'petshopdb' i izmeniti informacije u .env. 
+Potrebno je napraviti bazu podataka pod imenom 'petshopdb' i izmeniti informacije u .env. Nekada je potrebno pokrenuti *php artisan key:generate* kako bi se genersio APP KEY.
 
 *php artisan migrate* kako bi se napravile tabele.
 
